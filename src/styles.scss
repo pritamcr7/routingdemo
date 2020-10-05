@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+a:hover{
+    background-color: rgb(168, 63, 63);
+}
+a:active{
+    background-color: green;
+}
+.selected button{
+    background-color: rgb(201, 123, 162);
+    
+}

@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "routing-demo"
+    }
+  },
+  "defaultProject": "routing-demo",
+  "cli": {
+    "analytics": "eac1e32e-af93-4728-a826-4d94a061d348"
+  }
 }
