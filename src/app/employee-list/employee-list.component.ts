@@ -1,18 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-
+import {SharedService} from './../shared.service';
 @Component({
   selector: 'app-employee-list',
   template: `
-   <h3>Employee Lists Here</h3>
+   <h3 *ngIf="total==0">Shopping Cart is Empty</h3>
+   <span *ngIf="total!=0">Total Price:{{total}}</span>
   `,
   styles: [
+    `
+    span{
+      font-size:30px;
+      color:blue;
+    }
+    `
   ]
 })
 export class EmployeeListComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private shared:SharedService) { }
+array=[];
+total=0;
   ngOnInit(): void {
+    this.array=this.shared.getArray();
+    this.array.map(data=>{
+      this.total=this.total+data;
+    });
+    
   }
+  
 
 }

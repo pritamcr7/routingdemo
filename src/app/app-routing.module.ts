@@ -1,3 +1,4 @@
+import { CartHomePageComponent } from './cart-home-page/cart-home-page.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
@@ -8,7 +9,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path:'',
-    component:DepartmentListComponent
+    component:CartHomePageComponent
     },
   {
 path:'departments',

@@ -5,6 +5,7 @@ import { AppRoutingModule,routingComponenets } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { CartHomePageComponent } from './cart-home-page/cart-home-page.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
     AppComponent,
     routingComponenets,
     PageNotFoundComponent,
-    DepartmentDetailComponent
+    DepartmentDetailComponent,
+    CartHomePageComponent
   ],
   imports: [
     BrowserModule,

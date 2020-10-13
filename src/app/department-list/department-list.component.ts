@@ -3,25 +3,32 @@ import { Router, ActivatedRoute,ParamMap } from '@angular/router';
 @Component({
   selector: 'app-department-list',
   template: `
-    <h3>Department Lists</h3>
+    <h3>Item Lists</h3>
     <ul class="items">
   <li (click)="onSelect(i)" [class.selected]="isSelected(i)" *ngFor="let i of dept">
-  <button type="button" class="btn btn-outline-secondary">{{i.id}}--{{i.name}}</button>
+  <button type="button" class="btn btn-outline-secondary">{{i.emo}}--{{i.name}}</button>
   </li>
     </ul>
     
   `,
   styles: [
+    `ul {
+      list-style-type: none;
+    }
+    button{
+      margin-bottom:50px;
+    }
+    `
   ]
 })
 export class DepartmentListComponent implements OnInit {
 public selectedId;
   dept=[
-    {"id":1,"name":"Angular"},
-    {"id":2,"name":"Javascript"},
-    {"id":3,"name":"BootStrap"},
-    {"id":4,"name":"CSS3"},
-    {"id":5,"name":"HTML5"},
+    {"id":1,"emo":'🎂',"name":"Birthday Cake"},
+    {"id":2,"emo":'🍨',"name":"Ice Cream"},
+    {"id":3,"emo":'🧁',"name":"Cupcakes"},
+    {"id":4,"emo":'🥪',"name":"Sandwich"},
+    {"id":5,"emo":'🥞',"name":"Pancakes"},
   ]
   constructor(private router:Router,private route:ActivatedRoute) { }
 
