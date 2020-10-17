@@ -4,13 +4,14 @@ import {SharedService} from './../shared.service';
   selector: 'app-employee-list',
   template: `
    <h3 *ngIf="total==0">Shopping Cart is Empty</h3>
-   <span *ngIf="total!=0">Total Price:{{total}}</span>
+   <span *ngIf="total!=0">Total Price:&nbsp;{{total| currency:'INR'}}</span>
   `,
   styles: [
     `
     span{
       font-size:30px;
-      color:blue;
+      color: midnightblue;
+      font-weight: bold;
     }
     `
   ]

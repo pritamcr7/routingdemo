@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵSWITCH_TEMPLATE_REF_FACTORY__POST_R3__ } from '@angular/core';
 import { ActivatedRoute, ParamMap,Router } from '@angular/router';
 import {SharedService} from './../shared.service';
 @Component({
@@ -6,14 +6,15 @@ import {SharedService} from './../shared.service';
   template: `
     <h3>Available Items</h3>
     
-    <div *ngIf="departmentID==1"><div *ngFor="let i of list1"><h4>{{i.name}}--Rs.{{i.price}}</h4>&nbsp;<button type="button" (click)="addPrice(i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
-    <div *ngIf="departmentID==2"><div *ngFor="let i of list2"><h4>{{i.name}}--Rs.{{i.price}}</h4>&nbsp;<button type="button" (click)="addPrice(i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
-    <div *ngIf="departmentID==3"><div *ngFor="let i of list3"><h4>{{i.name}}--Rs.{{i.price}}</h4>&nbsp;<button type="button" (click)="addPrice(i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
-    <div *ngIf="departmentID==4"><div *ngFor="let i of list4"><h4>{{i.name}}--Rs.{{i.price}}</h4>&nbsp;<button type="button" (click)="addPrice(i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
-    <div *ngIf="departmentID==5"><div *ngFor="let i of list5"><h4>{{i.name}}--Rs.{{i.price}}</h4>&nbsp;<button type="button" (click)="addPrice(i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
+    <div *ngIf="departmentID==1"><div *ngFor="let i of list1"><h4>{{i.name}}--{{i.price | currency:'INR'}}</h4>&nbsp;<button type="button" (click)="addPrice(i.name,i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
+    <div *ngIf="departmentID==2"><div *ngFor="let i of list2"><h4>{{i.name}}--Rs.{{i.price | currency:'INR'}}</h4>&nbsp;<button type="button" (click)="addPrice(i.name,i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
+    <div *ngIf="departmentID==3"><div *ngFor="let i of list3"><h4>{{i.name}}--Rs.{{i.price | currency:'INR'}}</h4>&nbsp;<button type="button" (click)="addPrice(i.name,i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
+    <div *ngIf="departmentID==4"><div *ngFor="let i of list4"><h4>{{i.name}}--Rs.{{i.price | currency:'INR'}}</h4>&nbsp;<button type="button" (click)="addPrice(i.name,i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
+    <div *ngIf="departmentID==5"><div *ngFor="let i of list5"><h4>{{i.name}}--Rs.{{i.price | currency:'INR'}}</h4>&nbsp;<button type="button" (click)="addPrice(i.name,i.price)" class="btn btn-dark btn-sm">Add Item</button></div></div>
     <button type="button" (click)="onPrev()" class="btn btn-warning">Previous</button>&nbsp;
 <button type="button" (click)="onNext()" class="btn btn-info">Next</button><br>
 <button (click)="goDepartment()" class="btn btn-success">Back</button>
+<div *ngIf="flag">Item Added</div>
   `,
   styles: [
     `
@@ -31,6 +32,7 @@ import {SharedService} from './../shared.service';
   ]
 })
 export class DepartmentDetailComponent implements OnInit {
+  flag=false;
 list1=[
   {"name":"Choclate Cake","price":500},
   {"name":"Vanilla Cake","price":400}
@@ -85,8 +87,11 @@ list5=[
   let selectedId=this.departmentID?this.departmentID:null;
   this.router.navigate(['/departments',{id:selectedId}])
   }
-  addPrice(price){
+  addPrice(name,price){
+    alert(`Item ${name} Added Succesfully into the Cart`);
     this.shared.changeMessage2(price);
+  
+    
   }
 
 }
