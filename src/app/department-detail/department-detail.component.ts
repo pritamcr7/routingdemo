@@ -15,6 +15,7 @@ import {SharedService} from './../shared.service';
 <button type="button" (click)="onNext()" class="btn btn-info">Next</button><br>
 <button (click)="goDepartment()" class="btn btn-success">Back</button>
 <div *ngIf="flag">Item Added</div>
+
   `,
   styles: [
     `
